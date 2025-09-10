@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jonathan Kyle Hobson — Hub</title>
+  <meta name="description" content="Jonathan Kyle Hobson — UX Research · AI Prompt Architect · Product Design. Projects, case studies, and writing." />
+  <style>
+    /* ====== Design tokens (high-contrast, system fonts) ====== */
+    :root{
+      --bg: #0b0f14;
+      --panel:#131a23;
+      --card:#0f141b;
+      --text:#eaf2fb;
+      --muted:#a7b6c8;
+      --accent:#4ea1ff;         /* Meets contrast on dark */
+      --accent-2:#57d399;       /* Secondary accent */
+      --ring: rgba(78,161,255,.45);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fc;
+        --panel:#ffffff;
+        --card:#ffffff;
+        --text:#0b1220;
+        --muted:#4b5a6b;
+        --accent:#0a63c9;       /* Blue with ≥ AA on white */
+        --accent-2:#0b8a5a;
+        --ring: rgba(10,99,201,.35);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:focus{outline:3px solid var(--ring);outline-offset:2px;border-radius:.35rem}
+    .wrap{max-width:1040px;margin-inline:auto;padding:28px}
+    header{display:grid;gap:18px;margin:12px 0 22px}
+    .hero{
+      display:grid;gap:18px;
+      grid-template-columns: 92px 1fr; align-items:center;
+      background:linear-gradient(180deg,var(--panel),transparent);
+      padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.06)
+    }
+    .avatar{
+      width:92px;height:92px;border-radius:50%;
+      background: radial-gradient(60% 60% at 50% 40%, var(--accent), var(--accent-2));
+      border:3px solid rgba(255,255,255,.15)
+    }
+    h1{font-size:clamp(1.4rem,2.6vw,2rem);margin:0}
+    .tagline{color:var(--muted);margin:4px 0 0}
+    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .btn{
+      display:inline-flex;gap:8px;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      background:var(--card);color:var(--text);font-weight:600
+    }
+    .btn.primary{background:var(--accent);color:white;border-color:transparent}
+    .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
+    section{margin:28px 0}
+    .section-h{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
+    .grid{
+      display:grid;gap:14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    }
+    .card{
+      background:var(--card);border:1px solid rgba(255,255,255,.08);
+      padding:16px;border-radius:16px;display:flex;flex-direction:column;gap:10px
+    }
+    .card h3{margin:0;font-size:1.05rem}
+    .card p{margin:0;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .tag{font-size:.78rem;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09)}
+    .card a.more{margin-top:auto;align-self:flex-start}
+    footer{margin:36px 0 12px;color:var(--muted);font-size:.92rem}
+    /* Focus-visible for keyboard users */
+    :focus:not(:focus-visible){outline:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header aria-label="Site header">
+      <div class="hero">
+        <div class="avatar" role="img" aria-label="Abstract avatar gradient"></div>
+        <div>
+          <h1>Jonathan Kyle Hobson</h1>
+          <p class="tagline">UX Research · AI Prompt Architect · Product Design</p>
+          <div class="cta" role="navigation" aria-label="Primary actions">
+            <a class="btn primary" href="#featured">Featured</a>
+            <a class="btn" href="#projects">Projects</a>
+            <a class="btn" href="#writing">Writing</a>
+            <a class="btn" href="mailto:jonathankhobson@gmail.com" rel="me">Contact</a>
+            <!-- Swap with real links when ready -->
+            <a class="btn" href="https://www.linkedin.com/in/jonathankhobson" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <section id="featured" aria-labelledby="featured-h">
+        <div class="section-h">
+          <h2 id="featured-h">Featured</h2>
+        </div>
+        <div class="grid" id="featuredGrid" role="list"></div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-h">
+        <div class="section-h">
+          <h2 id="projects-h">Projects & Apps</h2>
+          <small class="muted">Auto-generated from a simple list below</small>
+        </div>
+        <div class="grid" id="projectsGrid" role="list"></div>
+      </section>
+
+      <section id="writing" aria-labelledby="writing-h">
+        <div class="section-h">
+          <h2 id="writing-h">Writing & Talks</h2>
+        </div>
+        <div class="grid" id="writingGrid" role="list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="y"></span> Jonathan Kyle Hobson · Built on GitHub Pages</p>
+    </footer>
+  </div>
+
+  <!-- ====== Tiny data model you can edit in-place ====== -->
+  <script>
+    const DATA = {
+      featured: [
+        {
+          title: "Critical Thinking GPT",
+          desc: "A structured reasoning assistant (laddered steps, counterpoints, and confidence).",
+          tags: ["GPT", "Reasoning", "UX"],
+          url: "https://chat.openai.com/g/g-optOr9gG3-reasoning-architect-gpt"
+        },
+        {
+          title: "KeepMake — Memory Hub (MVP)",
+          desc: "Family memory tracker with monthly recaps and printable time capsules.",
+          tags: ["Product", "MVP", "Design"],
+          url: "https://jonathankhobson.github.io/keepmake" // example path
+        },
+        {
+          title: "8-bit Quest Fitness",
+          desc: "Browser RPG meets habit tracking; quests, stats, and gold.",
+          tags: ["Game", "JS", "Prototype"],
+          url: "https://jonathankhobson.github.io/8bit-quest"
+        }
+      ],
+      projects: [
+        {
+          title: "Glossary of Prompting Terms",
+          desc: "Interactive glossary for AI/prompt-engineering frameworks.",
+          tags: ["Docs", "Prompting"],
+          url: "https://jonathankhobson.github.io/glossary"
+        },
+        {
+          title: "Reasoning Ladder",
+          desc: "8-step structured thinking worksheet app.",
+          tags: ["Web App", "Critical Thinking"],
+          url: "https://jonathankhobson.github.io/reasoning-ladder"
+        },
+        {
+          title: "Dungeon Raid (P2K)",
+          desc: "Tabletop tools: dungeons, loot, and survival logic.",
+          tags: ["TTRPG", "Tools"],
+          url: "https://jonathankhobson.github.io/p2k-dungeon-raid"
+        }
+      ],
+      writing: [
+        {
+          title: "Prompting Dialogue (Master’s Thesis)",
+          desc: "Taxonomy and strategies for inclusive, context-aware prompting.",
+          tags: ["Thesis", "AI", "UX"],
+          url: "https://asuworks.example/thesis" // replace
+        },
+        {
+          title: "Substack — Essays on AI & UX",
+          desc: "Ethics, prompting frameworks, and design notes.",
+          tags: ["Essays"],
+          url: "https://jonathankhobson.substack.com"
+        },
+        {
+          title: "Talks & Workshops",
+          desc: "ASU sessions on AI literacy and prompt architecture.",
+          tags: ["Talks"],
+          url: "https://www.linkedin.com/in/jonathankhobson/details/experience/"
+        }
+      ]
+    };
+
+    function card({title, desc, tags, url}) {
+      const tagHtml = (tags||[]).map(t=>`<span class="tag">${t}</span>`).join("");
+      return `
+        <article class="card" role="listitem">
+          <h3>${title}</h3>
+          <p>${desc}</p>
+          <div class="tags">${tagHtml}</div>
+          <a class="more" href="${url}" target="_blank" rel="noopener">Open →</a>
+        </article>
+      `;
+    }
+    function render(){
+      document.getElementById('y').textContent = new Date().getFullYear();
+      const f = document.getElementById('featuredGrid');
+      const p = document.getElementById('projectsGrid');
+      const w = document.getElementById('writingGrid');
+      f.innerHTML = DATA.featured.map(card).join("");
+      p.innerHTML = DATA.projects.map(card).join("");
+      w.innerHTML = DATA.writing.map(card).join("");
+    }
+    render();
+  </script>
+</body>
+</html>
