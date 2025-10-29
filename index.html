@@ -72,7 +72,6 @@
     .tag{font-size:.78rem;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09)}
     .card a.more{margin-top:auto;align-self:flex-start}
     footer{margin:36px 0 12px;color:var(--muted);font-size:.92rem}
-    /* Focus-visible for keyboard users */
     :focus:not(:focus-visible){outline:none}
   </style>
 </head>
@@ -80,18 +79,19 @@
   <div class="wrap">
     <header aria-label="Site header">
       <div class="hero">
-        <div class="avatar" role="img" aria-label="Abstract avatar gradient"></div>
-        <div>
+<img class="avatar" src="assets/avatar.jpeg" alt="Jonathan Kyle Hobson" width="92" height="92">   
+<div>
           <h1>Jonathan Kyle Hobson</h1>
           <p class="tagline">UX Research · AI Prompt Architect · Product Design</p>
           <div class="cta" role="navigation" aria-label="Primary actions">
             <a class="btn primary" href="#featured">Featured</a>
             <a class="btn" href="#projects">Projects</a>
+            <a class="btn" href="#gpts">Custom GPTs</a>
             <a class="btn" href="#writing">Writing</a>
+            <a class="btn" href="#profiles">Profiles</a>
             <a class="btn" href="mailto:jonathankhobson@gmail.com" rel="me">Contact</a>
-            <!-- Swap with real links when ready -->
-            <a class="btn" href="https://www.linkedin.com/in/jonathankhobson" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+            <a class="btn" href="https://www.linkedin.com/in/jonathankylehobson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn" href="https://jonathankhobson.github.io/Test/CaseStudies2025.pdf" target="_blank" rel="noopener noreferrer">Portfolio (PDF)</a>
           </div>
         </div>
       </div>
@@ -113,11 +113,25 @@
         <div class="grid" id="projectsGrid" role="list"></div>
       </section>
 
+      <section id="gpts" aria-labelledby="gpts-h">
+        <div class="section-h">
+          <h2 id="gpts-h">Custom GPTs</h2>
+        </div>
+        <div class="grid" id="gptGrid" role="list"></div>
+      </section>
+
       <section id="writing" aria-labelledby="writing-h">
         <div class="section-h">
-          <h2 id="writing-h">Writing & Talks</h2>
+          <h2 id="writing-h">Writing, Talks & Courses</h2>
         </div>
         <div class="grid" id="writingGrid" role="list"></div>
+      </section>
+
+      <section id="profiles" aria-labelledby="profiles-h">
+        <div class="section-h">
+          <h2 id="profiles-h">Profiles</h2>
+        </div>
+        <div class="grid" id="profilesGrid" role="list"></div>
       </section>
     </main>
 
@@ -126,47 +140,79 @@
     </footer>
   </div>
 
-  <!-- ====== Tiny data model you can edit in-place ====== -->
   <script>
     const DATA = {
       featured: [
         {
-          title: "Critical Thinking GPT",
-          desc: "A structured reasoning assistant (laddered steps, counterpoints, and confidence).",
-          tags: ["GPT", "Reasoning", "UX"],
-          url: "https://chat.openai.com/g/g-optOr9gG3-reasoning-architect-gpt"
+          title: "Most Recent Portfolio (PDF)",
+          desc: "Latest case studies and highlights.",
+          tags: ["Portfolio", "PDF"],
+          url: "https://jonathankhobson.github.io/Test/CaseStudies2025.pdf"
         },
         {
-          title: "KeepMake — Memory Hub (MVP)",
-          desc: "Family memory tracker with monthly recaps and printable time capsules.",
-          tags: ["Product", "MVP", "Design"],
-          url: "https://jonathankhobson.github.io/keepmake" // example path
+          title: "Prompt Builder — CLARE",
+          desc: "AI prompting + vibe-coded prototypes hub.",
+          tags: ["AI", "Prompting", "Prototype"],
+          url: "https://jonathankhobson.github.io/AI/index.html"
         },
         {
-          title: "8-bit Quest Fitness",
-          desc: "Browser RPG meets habit tracking; quests, stats, and gold.",
-          tags: ["Game", "JS", "Prototype"],
-          url: "https://jonathankhobson.github.io/8bit-quest"
+          title: "Critical Thinker — Custom GPT",
+          desc: "Structured reasoning with counterpoints and confidence.",
+          tags: ["GPT", "Reasoning"],
+          url: "https://chatgpt.com/g/g-TBLF9vKpo-critical-thinker"
         }
       ],
       projects: [
         {
-          title: "Glossary of Prompting Terms",
-          desc: "Interactive glossary for AI/prompt-engineering frameworks.",
-          tags: ["Docs", "Prompting"],
-          url: "https://jonathankhobson.github.io/glossary"
+          title: "Prompt Builder — CLARE (Vibe-Coded)",
+          desc: "Index of templates and builders.",
+          tags: ["AI", "Prompting"],
+          url: "https://jonathankhobson.github.io/AI/index.html"
         },
         {
-          title: "Reasoning Ladder",
+          title: "Reasoning Ladder (Vibe-Coded)",
           desc: "8-step structured thinking worksheet app.",
           tags: ["Web App", "Critical Thinking"],
-          url: "https://jonathankhobson.github.io/reasoning-ladder"
+          url: "https://jonathankhobson.github.io/AI/reasoningladder.html"
         },
         {
-          title: "Dungeon Raid (P2K)",
-          desc: "Tabletop tools: dungeons, loot, and survival logic.",
-          tags: ["TTRPG", "Tools"],
-          url: "https://jonathankhobson.github.io/p2k-dungeon-raid"
+          title: "Dungeon Crawler (Vibe-Coded)",
+          desc: "Browser-based TTRPG dungeon crawler prototype.",
+          tags: ["TTRPG", "Prototype"],
+          url: "https://jonathankhobson.github.io/TTRPG/dungeoncrawler/index.html"
+        },
+        {
+          title: "Time Zone Converter (Vibe-Coded)",
+          desc: "Simple converter for fast, error-proof scheduling.",
+          tags: ["Utility", "Prototype"],
+          url: "https://jonathankhobson.github.io/Test/timezoneconverter.html"
+        }
+        // Removed: KeepMake Memory Hub, 8-bit Quest Fitness, Glossary (no valid URL provided)
+      ],
+      gpts: [
+        {
+          title: "Reasoning Architect — Custom GPT",
+          desc: "Decomposes problems and builds KPI/ROI trees.",
+          tags: ["GPT", "Analysis"],
+          url: "https://chatgpt.com/g/g-optOr9gG3-reasoning-architect-gpt"
+        },
+        {
+          title: "Critical Thinker — Custom GPT",
+          desc: "Laddered thinking + counterarguments.",
+          tags: ["GPT", "Reasoning"],
+          url: "https://chatgpt.com/g/g-TBLF9vKpo-critical-thinker"
+        },
+        {
+          title: "Prompt Crafter — Custom GPT",
+          desc: "Drafts production-grade prompts with guardrails.",
+          tags: ["GPT", "Prompting"],
+          url: "https://chatgpt.com/g/g-Jf5jYxTRl-prompt-crafter"
+        },
+        {
+          title: "UX Oracle — Custom GPT",
+          desc: "Heuristics, usability critiques, and test plans.",
+          tags: ["GPT", "UX"],
+          url: "https://chatgpt.com/g/g-tzze5iGN7-ux-oracle"
         }
       ],
       writing: [
@@ -174,19 +220,75 @@
           title: "Prompting Dialogue (Master’s Thesis)",
           desc: "Taxonomy and strategies for inclusive, context-aware prompting.",
           tags: ["Thesis", "AI", "UX"],
-          url: "https://asuworks.example/thesis" // replace
+          url: "https://jonathankhobson.github.io/home/thesis.pdf"
+        },
+        {
+          title: "LinkedIn — Articles",
+          desc: "Long-form pieces on AI, UX, and prompting.",
+          tags: ["Essays", "LinkedIn"],
+          url: "https://www.linkedin.com/in/jonathankylehobson/recent-activity/articles/"
+        },
+        {
+          title: "LinkedIn — Newsletter (AI/UX Insights)",
+          desc: "Signal over noise on AI + UX.",
+          tags: ["Newsletter", "LinkedIn"],
+          url: "https://www.linkedin.com/newsletters/ai-ux-insights-the-future"
         },
         {
           title: "Substack — Essays on AI & UX",
           desc: "Ethics, prompting frameworks, and design notes.",
-          tags: ["Essays"],
+          tags: ["Essays", "Substack"],
           url: "https://jonathankhobson.substack.com"
         },
         {
-          title: "Talks & Workshops",
-          desc: "ASU sessions on AI literacy and prompt architecture.",
-          tags: ["Talks"],
-          url: "https://www.linkedin.com/in/jonathankhobson/details/experience/"
+          title: "Talks & Workshops (YouTube Playlist)",
+          desc: "Prompting presentations and course snippets.",
+          tags: ["Talks", "YouTube"],
+          url: "https://www.youtube.com/playlist?list=PLqHB2jaO79PYa3DcMpdm926q35-B25YWN"
+        },
+        {
+          title: "Coursera Guided Project",
+          desc: "ChatGPT 4o for Beginners: Create Social Media Content.",
+          tags: ["Course", "Coursera"],
+          url: "https://www.coursera.org/projects/chatgpt-beginners"
+        },
+        {
+          title: "Course Walkthrough (YouTube)",
+          desc: "Video version of the Coursera project.",
+          tags: ["Course", "YouTube"],
+          url: "https://www.youtube.com/watch?v=TE75o6IXWo8&t=1s"
+        }
+      ],
+      profiles: [
+        {
+          title: "LinkedIn — Profile",
+          desc: "Connect and view projects.",
+          tags: ["LinkedIn"],
+          url: "https://www.linkedin.com/in/jonathankylehobson/"
+        },
+        {
+          title: "LinkedIn — Projects",
+          desc: "Selected public project listings.",
+          tags: ["LinkedIn"],
+          url: "https://www.linkedin.com/in/jonathankylehobson/details/projects/"
+        },
+        {
+          title: "YouTube — PromptArchitectGPT",
+          desc: "AI + prompting content.",
+          tags: ["YouTube"],
+          url: "https://www.youtube.com/@PromptArchitectGPT"
+        },
+        {
+          title: "YouTube — Jonathan K. Hobson",
+          desc: "Talks, demos, and playlists.",
+          tags: ["YouTube"],
+          url: "https://www.youtube.com/@jonathanhobson9690"
+        },
+        {
+          title: "Behance — UX Mastermind",
+          desc: "Visuals and design experiments.",
+          tags: ["Behance"],
+          url: "https://www.behance.net/uxmastermind"
         }
       ]
     };
@@ -198,7 +300,7 @@
           <h3>${title}</h3>
           <p>${desc}</p>
           <div class="tags">${tagHtml}</div>
-          <a class="more" href="${url}" target="_blank" rel="noopener">Open →</a>
+          <a class="more" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${title} (opens in a new tab)">Open →</a>
         </article>
       `;
     }
@@ -207,9 +309,13 @@
       const f = document.getElementById('featuredGrid');
       const p = document.getElementById('projectsGrid');
       const w = document.getElementById('writingGrid');
+      const g = document.getElementById('gptGrid');
+      const pr = document.getElementById('profilesGrid');
       f.innerHTML = DATA.featured.map(card).join("");
       p.innerHTML = DATA.projects.map(card).join("");
       w.innerHTML = DATA.writing.map(card).join("");
+      g.innerHTML = DATA.gpts.map(card).join("");
+      pr.innerHTML = DATA.profiles.map(card).join("");
     }
     render();
   </script>
